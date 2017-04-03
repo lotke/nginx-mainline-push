@@ -32,7 +32,7 @@
 
 Name:              nginx-mainline
 Epoch:             1
-Version:           1.11.3
+Version:           1.11.9
 Release:           2%{?dist}
 
 Summary:           A high performance web server and reverse proxy server
@@ -44,7 +44,7 @@ URL:               http://nginx.org/
 
 Source0:           http://nginx.org/download/nginx-%{version}.tar.gz
 Source1:           http://nginx.org/download/nginx-%{version}.tar.gz.asc
-Source2:	   https://repo.beanonetork.com/nginx/nginx-push-stream-module.tgz
+Source2:	   https://repo.beanonetwork.com/nginx/nginx-1.11.9-push-stream-module.patch.gz
 Source10:          nginx.service
 Source11:          nginx.logrotate
 Source12:          nginx.conf
@@ -58,7 +58,7 @@ Source102:         nginx-logo.png
 Source103:         404.html
 Source104:         50x.html
 
-Patch:            nginx-push-stream-module.patch
+Patch:             nginx-1.11.9-push-stream-module.patch.gz
 
 BuildRequires:     GeoIP-devel
 BuildRequires:     gd-devel
@@ -125,17 +125,11 @@ directories. This installs the mainline version of nginx.
 mv nginx-%{version}/* .
 rmdir nginx-%{version}
 
-
 %build
 # nginx does not utilize a standard configure script.  It has its own
 # and the standard configure options cause the nginx configure script
 # to error out.  This is is also the reason for the DESTDIR environment
 # variable.
-pwd
-ls
-#sleep 60
-
-
 export DESTDIR=%{buildroot}
 ./configure \
     --prefix=%{nginx_datadir} \
@@ -194,6 +188,7 @@ export DESTDIR=%{buildroot}
     --add-module=nginx-push-stream-module
 
 make %{?_smp_mflags}
+
 
 %install
 make install DESTDIR=%{buildroot} INSTALLDIRS=vendor
@@ -344,6 +339,24 @@ fi
 
 
 %changelog
+* Fri Jan 27 2017 Kyle Lexmond <fedora@kyl191.net> - 1:1.11.9-1
+- Update to upstream nginx 1.11.9
+
+* Wed Dec 28 2016 Kyle Lexmond <fedora@kyl191.net> - 1:1.11.8-1
+- Update to upstream nginx 1.11.8
+
+* Tue Dec 27 2016 Kyle Lexmond <fedora@kyl191.net> - 1:1.11.7-1
+- Update to upstream nginx 1.11.7
+
+* Tue Dec 27 2016 Kyle Lexmond <fedora@kyl191.net> - 1:1.11.6-1
+- Update to upstream nginx 1.11.6
+
+* Tue Dec 27 2016 Kyle Lexmond <fedora@kyl191.net> - 1:1.11.5-1
+- Update to upstream nginx 1.11.5
+
+* Tue Dec 27 2016 Kyle Lexmond <fedora@kyl191.net> - 1:1.11.4-1
+- Update to upstream nginx 1.11.4
+
 * Tue Jul 26 2016 kyl191 <lantea@kyl191.net> - 1:1.11.3-2
 - Build stream_ssl_module as well
 
