@@ -58,7 +58,7 @@ Source102:         nginx-logo.png
 Source103:         404.html
 Source104:         50x.html
 
-Patch:             nginx-1.11.9-push-stream-module.patch
+Patch0:             nginx-1.11.9-push-stream-module.patch
 
 BuildRequires:     GeoIP-devel
 BuildRequires:     gd-devel
@@ -121,7 +121,7 @@ directories. This installs the mainline version of nginx.
 
 %prep
 %setup -n nginx-mainline -c
-%patch
+%patch0
 mv nginx-%{version}/* .
 rmdir nginx-%{version}
 
