@@ -44,7 +44,7 @@ URL:               http://nginx.org/
 
 Source0:           http://nginx.org/download/nginx-%{version}.tar.gz
 Source1:           http://nginx.org/download/nginx-%{version}.tar.gz.asc
-Source2:	   https://repo.beanonetwork.com/nginx/nginx-1.11.9-push-stream-module.patch.gz
+
 Source10:          nginx.service
 Source11:          nginx.logrotate
 Source12:          nginx.conf
@@ -58,7 +58,7 @@ Source102:         nginx-logo.png
 Source103:         404.html
 Source104:         50x.html
 
-Patch:             nginx-1.11.9-push-stream-module.patch.gz
+Patch:             nginx-1.11.9-push-stream-module.patch
 
 BuildRequires:     GeoIP-devel
 BuildRequires:     gd-devel
