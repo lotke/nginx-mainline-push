@@ -45,7 +45,7 @@ URL:               http://nginx.org/
 Source0:           http://nginx.org/download/nginx-%{version}.tar.gz
 Source1:           http://nginx.org/download/nginx-%{version}.tar.gz.asc
 
-Source10:          nginx.service
+Source10:          SOURCES/nginx.service
 Source11:          nginx.logrotate
 Source12:          nginx.conf
 Source13:          nginx-upgrade
