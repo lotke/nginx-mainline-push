@@ -32,8 +32,8 @@
 
 Name:              nginx-mainline
 Epoch:             1
-Version:           1.11.9
-Release:           2%{?dist}
+Version:           1.13.4
+Release:           1%{?dist}
 
 Summary:           A high performance web server and reverse proxy server
 Group:             System Environment/Daemons
